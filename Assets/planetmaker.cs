@@ -126,8 +126,10 @@ public class planetmaker : MonoBehaviour
             }
 
             planet.transform.position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0);
-            planet.transform.localScale += Vector3.one * growSpeed;
-            finalmass += growSpeed;
+            if (finalmass < 3) {
+                planet.transform.localScale += Vector3.one * growSpeed;
+                finalmass += growSpeed;
+            }
             yield return null;
         }
         planet.GetComponent<SphereCollider>().enabled = true;
