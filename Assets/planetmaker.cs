@@ -24,7 +24,7 @@ public class planetmaker : MonoBehaviour
         
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         
-        if (Physics.Raycast(ray, out hit) && Input.GetKey("delete")) {
+        if (Physics.Raycast(ray, out hit) && Input.GetKey("delete") && !cameraScript.focused) {
             Camera.main.SendMessage("PlanetDestroyed", hit.transform.gameObject);
             Destroy(hit.transform.gameObject);
             WipeLines();
@@ -45,6 +45,7 @@ public class planetmaker : MonoBehaviour
         do {
             
             Destroy(pastline);
+            if (hit.transform == null) yield break;
 
             var positionDifference = -1 * (Camera.main.ScreenToWorldPoint(Input.mousePosition) - hit.transform.position); 
             positionDifference.z = 0;

@@ -35,6 +35,8 @@ public class frames : MonoBehaviour
                 t.text = (Mathf.Round((1 / customDeltaTime) * 10.0f) * 0.1f).ToString();
                 waitForNextFrameCounter = 0.1f;
             }
+        } else {
+            t.text = string.Empty;
         }
 
         lastTimeSinceStartup = Time.realtimeSinceStartup;

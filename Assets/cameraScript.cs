@@ -14,7 +14,7 @@ public class cameraScript : MonoBehaviour
     float previousTimeScale = 1.0f;
     List<GameObject> allPlanets = new List<GameObject>();
 
-    bool focused;
+    public static bool focused;
     bool pausetime;
     public static bool velocitylines;
     GameObject focusedPlanet;
